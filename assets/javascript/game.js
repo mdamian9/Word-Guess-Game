@@ -32,7 +32,7 @@ document.onkeyup = function (event) {
             console.log(userGuess); // Quick console check for userGuess
             console.log(comGuess); // Quick console check for comGuess
 
-            displayGuess.textContent = displayGuess.textContent + " " + userGuess; // little bug in this line of code [,a ,b]
+            displayGuess.textContent += userGuess + " ";
 
             if (userGuess === comGuess) {
                 wins++;
