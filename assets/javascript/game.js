@@ -51,6 +51,3 @@ document.onkeyup = function (event) {
     console.log(numGuesses);
 
 }
-
-
-// For some reason the "else" part of the statement is not running when numGuesses is anything other than greater than 0.
