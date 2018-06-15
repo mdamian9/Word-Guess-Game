@@ -15,15 +15,16 @@ function checkLetter(str) {
     return flag;
 }
 
-if (numGuesses > 0) {
-    document.onkeyup = function (event) {
-        // Determines which key was pressed.
-        var userGuess = event.key;
 
-        // Just a quick console log check to see if the function is returning what I want. When this line of code is run I get the error
-        checkLetter(userGuess);
-        console.log(checkLetter(userGuess));
+document.onkeyup = function (event) {
+    // Determines which key was pressed.
+    var userGuess = event.key;
 
+    // Just a quick console log check to see if the function is returning what I want.
+    checkLetter(userGuess);
+    console.log(checkLetter(userGuess));
+
+    if (numGuesses > 0) {
         if (checkLetter(userGuess)) {
             numGuesses--;
             displayGuessLeft.textContent = numGuesses;
@@ -31,7 +32,7 @@ if (numGuesses > 0) {
             console.log(userGuess); // Quick console check for userGuess
             console.log(comGuess); // Quick console check for comGuess
 
-            displayGuess.textContent = displayGuess.textContent + " " + userGuess;
+            displayGuess.textContent = displayGuess.textContent + " " + userGuess; // little bug in this line of code [,a ,b]
 
             if (userGuess === comGuess) {
                 wins++;
@@ -42,11 +43,14 @@ if (numGuesses > 0) {
             }
         } else {
             alert("You did not pick an alphabetical letter! Try again!");
-        }
-
-        console.log(numGuesses);
-
+        } 
+    } else {
+        alert("You ran out of guesses! Refresh the page to try again!");
     }
-} else if (numGuesses <= 0) {
-    alert("You have 0 guesses left. The game is over! Refresh the page to play again!");
+
+    console.log(numGuesses);
+
 }
+
+
+// For some reason the "else" part of the statement is not running when numGuesses is anything other than greater than 0.
