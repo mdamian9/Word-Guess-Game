@@ -45,7 +45,7 @@ document.onkeyup = function (event) {
             alert("You did not pick an alphabetical letter! Try again!");
         } 
     } else {
-        alert("You ran out of guesses! Refresh the page to try again!");
+        alert("You ran out of guesses! Refresh the page to play again!");
     }
 
     console.log(numGuesses);
